@@ -7,7 +7,7 @@
         <hr>
         <div class='OrderItems'>
           <div>
-            <CheckOutCartItemsComponent
+            <CheckoutCartProductenComponent
               v-for='cartItem in $store.state.cart'
               v-bind:key='cartItem.product.id'
               :product='cartItem.product'
@@ -58,14 +58,14 @@
 </template>
 
 <script>
-import CheckOutCartItemsComponent from '@/components/CheckoutCartProductenComponent.vue'
+import CheckoutCartProductenComponent from '@/components/CheckoutCartProductenComponent.vue'
 import KnopComponent from '@/components/KnopComponent.vue'
 
 export default {
   name: 'CheckOutView',
   components: {
     KnopComponent,
-    CheckOutCartItemsComponent
+    CheckoutCartProductenComponent
   },
   props: {
     product: {
