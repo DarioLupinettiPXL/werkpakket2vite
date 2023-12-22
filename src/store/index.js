@@ -1,33 +1,33 @@
-import { defineStore } from 'pinia';
-
-export const useCartStore = defineStore('cart', {
-  state: () => ({
-    items: [],
-  }),
-  actions: {
-    addToCart(product) {
-      const existingProduct = this.items.find(item => item.id === product.id);
-
-      if (existingProduct) {
-        existingProduct.quantity += product.quantity;
-      } else {
-        this.items.push({ ...product, quantity: product.quantity });
-      }
-    },
-    removeFromCart(item) {
-      const index = this.items.findIndex(i => i.id === item.id);
-
-      if (index !== -1) {
-        this.items.splice(index, 1);
-      }
-    },
-  },
-  getters: {
-    cartItemCount() {
-      return this.items.reduce((total, item) => total + item.quantity, 0);
-    }
-  }
-});
+// import { defineStore } from 'pinia';
+//
+// export const useCartStore = defineStore('cart', {
+//   state: () => ({
+//     items: [],
+//   }),
+//   actions: {
+//     addToCart(product) {
+//       const existingProduct = this.items.find(item => item.id === product.id);
+//
+//       if (existingProduct) {
+//         existingProduct.quantity += product.quantity;
+//       } else {
+//         this.items.push({ ...product, quantity: product.quantity });
+//       }
+//     },
+//     removeFromCart(item) {
+//       const index = this.items.findIndex(i => i.id === item.id);
+//
+//       if (index !== -1) {
+//         this.items.splice(index, 1);
+//       }
+//     },
+//   },
+//   getters: {
+//     cartItemCount() {
+//       return this.items.reduce((total, item) => total + item.quantity, 0);
+//     }
+//   }
+// });
 
 import { createStore } from 'vuex';
 import json from "@/assets/products.json";
@@ -40,6 +40,9 @@ export default createStore({
     userInfo: {}
   },
   getters: {
+    getCartItemById: (state) => (id) => {
+      return state.cart.find(cartItem => cartItem.product.id === id);
+    },
     getLoggedInUser(state) {
       return state.userInfo.name;
     },
@@ -77,6 +80,14 @@ export default createStore({
     }
   },
   mutations: {
+    updateCartItemAmount(state, payload) {
+      const { productId, newAmount } = payload;
+      const cartItem = state.cart.find(item => item.product.id === productId);
+
+      if (cartItem) {
+        cartItem.amount = newAmount;
+      }
+    },
     loginUser(state, payload) {
       state.userLoggedIn = true;
       state.userInfo = payload;
@@ -104,6 +115,9 @@ export default createStore({
     }
   },
   actions: {
+    updateCartItemAmount({ commit }, payload) {
+      commit('updateCartItemAmount', payload);
+    },
     logoutUser() {
       console.log(this.state.userInfo.user.name + " is nu uitgelogd");
       this.state.userLoggedIn = false;

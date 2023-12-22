@@ -131,7 +131,7 @@ div.inCartLabel {
 }
 
 
-section#products div#products_gallery div.productCard div.productDesc {
+section#products div#productweergave div.productCard div.productDesc {
   color: #3d3d3d;
   padding: 25px;
   flex-wrap: wrap;
@@ -139,7 +139,7 @@ section#products div#products_gallery div.productCard div.productDesc {
   position: relative;
 }
 
-section#products div#products_gallery div.productCard div.productImg img#p1 {
+section#products div#productweergave div.productCard div.productImg img#p1 {
   width: 100%;
   padding: 10px;
   max-width: 250px;

@@ -51,6 +51,7 @@ export default {
     return {
       btw: 1.21
     }
+
   },
   computed: {
     getCartTotal() {

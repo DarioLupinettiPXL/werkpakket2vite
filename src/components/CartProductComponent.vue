@@ -26,8 +26,16 @@
         <b>€{{ product.price }}</b>
         <b>€{{ (product.price * btw() - product.price).toFixed(2) }}</b>
 
-        <input v-bind='amount' min='1' :max='product.stock' :placeholder='amount' @input='updateCartItem'
-               type='number' name='amount' id='amount' width='10'>
+        <input
+          :value="amount"
+          min="1"
+          :max="product.stock"
+          placeholder="amount"
+          @input="updateCartItem"
+          type="number"
+          name="amount"
+          id="amount"
+        />
 
         <b>€{{ (amount * product.price * btw()).toFixed(2) }}</b>
       </div>
@@ -114,14 +122,17 @@ export default {
     },
 
     updateCartItem(event) {
-      const newAmount = event.target.value
+      const newAmount = Number(event.target.value);
+
       if (newAmount > this.product.stock) {
-        console.error('Aantal is te hoog')
-        return
+        console.error('Aantal is te hoog');
+        return;
       }
 
-      const productId = this.product.id
-      this.$store.commit('updateCartItem', { productId, newAmount })
+      this.$store.dispatch('updateCartItemAmount', {
+        productId: this.product.id,
+        newAmount,
+      });
     },
 
     removeProductFromCart() {
