@@ -3,9 +3,11 @@
     <div class='label' v-if='product.stock === 0'>Uitverkocht</div>
     <div class='inCartLabel' v-if='$store.state.cart.amount === 0'>In jouw winkelmand</div>
     <div class='productImg'>
+
       <router-link :to="{name:'product', params:{id:product.id}}">
         <img id='p1' :src='loadImg(product.image)' alt='Supercar' />
       </router-link>
+
       <div class='productDesc'>
         <h3>{{ product.title }}</h3>
         <b class='shop-price'>€{{ product.price }}</b>

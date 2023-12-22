@@ -10,7 +10,7 @@
       <h3>{{ product.title }}</h3>
       <p class="price">€{{ product.price }}</p>
       <router-link :to="{ name: 'product', params: { id: product.id } }">
-        <KnopComponent>View Product</KnopComponent>
+        <KnopComponent>Ga naar product</KnopComponent>
       </router-link>
     </div>
   </div>

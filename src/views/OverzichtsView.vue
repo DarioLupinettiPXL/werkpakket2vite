@@ -55,7 +55,8 @@ export default {
       brands: [],
       selectedPrijs: '',
       productsPerPage: 8,
-      currentPage: 1
+      currentPage: 1,
+      totalPages: 0
     }
   },
   mounted() {

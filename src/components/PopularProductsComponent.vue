@@ -75,7 +75,7 @@ export default {
       price: Number,
       vat: Number,
       stock: Number,
-      category: String
+      brand: String
     }
   },
   data() {
