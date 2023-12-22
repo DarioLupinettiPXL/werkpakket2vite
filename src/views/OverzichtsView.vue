@@ -32,7 +32,7 @@
     </section>
 
     <section id='products'>
-      <div id='products_gallery'>
+      <div id='productweergave'>
         <OverzichtCardComponent v-for='product in displayedProducts' :key='product.id' :product='product' />
       </div>
     </section>
@@ -183,7 +183,7 @@ section#pagination .pagination a:hover:not(.active) {
   color: #fff;
 }
 
-section#products div#products_gallery div.productCard {
+section#products div#productweergave div.productCard {
   max-width: 250px;
   margin: auto;
   background-color: #fff;
@@ -193,11 +193,11 @@ section#products div#products_gallery div.productCard {
   transition: transform 0.3s;
 }
 
-section#products div#products_gallery div.productCard:hover {
+section#products div#productweergave div.productCard:hover {
   transform: translateY(-5px);
 }
 
-section#products div#products_gallery div.productCard div.productImg img {
+section#products div#productweergave div.productCard div.productImg img {
   width: 100%;
   height: 150px;
   object-fit: cover;
@@ -222,7 +222,7 @@ section#pagination {
   margin-bottom: 50px;
 }
 
-section#products div#products_gallery {
+section#products div#productweergave {
   max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
