@@ -19,7 +19,7 @@ import CartNaBetalingComponent from '@/components/CartNaBetalingComponent.vue'
 export default {
   name: 'NaBetalingView',
   components: {
-    CartNaBetalingComponent,
+    CartNaBetalingComponent
   },
 
   data() {
@@ -66,6 +66,5 @@ div.wrapper {
 h1, p {
   margin-bottom: 1em;
 }
-
 </style>
 

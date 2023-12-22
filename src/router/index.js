@@ -40,9 +40,9 @@ const routes = [
     name: 'checkout',
     component: CheckOutView,
     beforeEnter: () => {
-      if(store.state.userLoggedIn === false){
-        sessionStorage.setItem("originatedFrom", "/checkout");
-        return router.push("/login");
+      if (store.state.userLoggedIn === false) {
+        sessionStorage.setItem('originatedFrom', '/checkout')
+        return router.push('/login')
       }
     }
   },
@@ -50,7 +50,7 @@ const routes = [
     path: '/naBetaling',
     name: 'naBetaling',
     component: NaBetalingView
-  },
+  }
 ]
 const router = createRouter({
   history: createWebHashHistory(),

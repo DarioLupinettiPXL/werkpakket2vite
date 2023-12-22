@@ -1,29 +1,29 @@
 <template>
-  <main id="box">
-    <div class="background-image"></div>
-    <section id="loginForm">
-      <span class="popup" v-if="$store.state.cart.length !== 0">{{ this.loginPopup }}</span>
+  <main id='box'>
+    <div class='background-image'></div>
+    <section id='loginForm'>
+      <span class='popup' v-if='$store.state.cart.length !== 0'>{{ this.loginPopup }}</span>
       <h2>Login</h2>
       <form>
-        <div class="container">
+        <div class='container'>
           <label v-bind:for="'uname'"><b>Email</b></label>
-          <div class="flex">
-            <input v-model="email" type="text" v-bind:id="'uname'" placeholder="Email" name="uname" required>
-            <span class="popup" v-if="incorrectCredentialsWarning">{{ this.incorrectEmail }}</span>
+          <div class='flex'>
+            <input v-model='email' type='text' v-bind:id="'uname'" placeholder='Email' name='uname' required>
+            <span class='popup' v-if='incorrectCredentialsWarning'>{{ this.incorrectEmail }}</span>
           </div>
 
           <label v-bind:for="'psw'"><b>Wachtwoord</b></label>
-          <div class="flex">
-            <input v-model="password" type="password" v-bind:id="'psw'" placeholder="Wachtwoord" name="psw" required>
-            <span class="popup" v-if="incorrectCredentialsWarning">{{ this.incorrectPassword }}</span>
+          <div class='flex'>
+            <input v-model='password' type='password' v-bind:id="'psw'" placeholder='Wachtwoord' name='psw' required>
+            <span class='popup' v-if='incorrectCredentialsWarning'>{{ this.incorrectPassword }}</span>
           </div>
-          <KnopComponent v-if="!userLoggedIn" @click.prevent="loginVerification">Login</KnopComponent>
+          <KnopComponent v-if='!userLoggedIn' @click.prevent='loginVerification'>Login</KnopComponent>
 
-          <KnopComponent v-if="$store.state.userLoggedIn" @click.prevent="logout">Logout</KnopComponent>
+          <KnopComponent v-if='$store.state.userLoggedIn' @click.prevent='logout'>Logout</KnopComponent>
           <br>
         </div>
-        <div class="container">
-          <span class="psw"><a href="#">Wachtwoord vergeten?</a></span>
+        <div class='container'>
+          <span class='psw'><a href='#'>Wachtwoord vergeten?</a></span>
         </div>
 
       </form>
@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import gebruikers from "@/assets/gebruikers.json";
-import router from "@/router";
-import KnopComponent from '@/components/KnopComponent.vue';
+import gebruikers from '@/assets/gebruikers.json'
+import router from '@/router'
+import KnopComponent from '@/components/KnopComponent.vue'
 
 export default {
   name: 'LoginView',
@@ -50,30 +50,30 @@ export default {
       loginPopup: 'Login om verder te gaan',
       password: '',
       incorrectPassword: 'Foute wachtwoord'
-    };
+    }
   },
   methods: {
     loginVerification() {
       gebruikers.users.forEach((user) => {
         if (user.email === this.email && user.password === this.password) {
-          this.$store.commit('loginUser', { user });
-          let navigatePath = "/";
-          let originatedFrom = sessionStorage.getItem("originatedFrom");
+          this.$store.commit('loginUser', { user })
+          let navigatePath = '/'
+          let originatedFrom = sessionStorage.getItem('originatedFrom')
           if (originatedFrom) {
-            sessionStorage.setItem("originatedFrom", "");
-            navigatePath = originatedFrom;
+            sessionStorage.setItem('originatedFrom', '')
+            navigatePath = originatedFrom
           }
-          router.push(navigatePath);
+          router.push(navigatePath)
         } else {
-          this.incorrectCredentialsWarning = true;
+          this.incorrectCredentialsWarning = true
         }
-      });
+      })
     },
     logout() {
-      this.$store.commit('logoutUser');
-      router.push("/");
-    },
-  },
+      this.$store.commit('logoutUser')
+      router.push('/')
+    }
+  }
 }
 </script>
 

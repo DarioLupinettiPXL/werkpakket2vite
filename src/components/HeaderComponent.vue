@@ -1,38 +1,38 @@
 <template>
-  <nav class="navbar">
-    <div class="left-section">
-      <router-link class="navbar-link" to="/">
+  <nav class='navbar'>
+    <div class='left-section'>
+      <router-link class='navbar-link' to='/'>
         Home
       </router-link>
-      <router-link class="navbar-link" to="/overzicht">
+      <router-link class='navbar-link' to='/overzicht'>
         Overzicht
       </router-link>
     </div>
 
-    <div class="right-section">
-      <router-link to="/login" v-if="!userLoginState" class="loginknop">
+    <div class='right-section'>
+      <router-link to='/login' v-if='!userLoginState' class='loginknop'>
         <KnopComponent>Login</KnopComponent>
       </router-link>
 
-      <button v-if="userLoginState" @click.prevent="logout" class="loguitknop">
+      <button v-if='userLoginState' @click.prevent='logout' class='loguitknop'>
         Loguit
       </button>
 
-      <router-link to="/winkelmand">
-        <div class="cartIcon">
-          <div class="cart">
-            <div v-if="$store.state.cart.length !== 0">
-              <span id="cartItems">
-                <small class="cartAmount">{{$store.state.cart.length}}</small>
+      <router-link to='/winkelmand'>
+        <div class='cartIcon'>
+          <div class='cart'>
+            <div v-if='$store.state.cart.length !== 0'>
+              <span id='cartItems'>
+                <small class='cartAmount'>{{ $store.state.cart.length }}</small>
               </span>
             </div>
           </div>
         </div>
       </router-link>
 
-      <router-link to="/" class="logo-link">
-        <div class="logo">
-          <img src="../assets/logo.png" alt="Logo" />
+      <router-link to='/' class='logo-link'>
+        <div class='logo'>
+          <img src='../assets/logo.png' alt='Logo' />
         </div>
       </router-link>
     </div>
@@ -40,9 +40,10 @@
 </template>
 
 <script>
-import KnopComponent from '@/components/KnopComponent.vue';
+import KnopComponent from '@/components/KnopComponent.vue'
+
 export default {
-  name: "HeaderComponent",
+  name: 'HeaderComponent',
   components: {
     KnopComponent
   },
@@ -52,19 +53,19 @@ export default {
   },
   computed: {
     userLoginState() {
-      return this.$store.state.userLoggedIn;
+      return this.$store.state.userLoggedIn
     }
   },
   methods: {
     logout() {
-      this.$store.dispatch('logoutUser');
-      return this.$forceUpdate();
+      this.$store.dispatch('logoutUser')
+      return this.$forceUpdate()
     }
   }
-};
+}
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .navbar {
   background-color: #333;
   padding: 20px;
@@ -156,6 +157,7 @@ export default {
     }
   }
 }
+
 .loguitknop {
   background-color: #dc3545;
   color: #fff;

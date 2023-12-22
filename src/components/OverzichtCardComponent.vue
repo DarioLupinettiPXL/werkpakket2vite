@@ -83,10 +83,10 @@ export default {
   methods: {
     loadImg(imgPath) {
       if (Object.prototype.hasOwnProperty.call(imageMap, imgPath)) {
-        return imageMap[imgPath];
+        return imageMap[imgPath]
       } else {
-        console.error('Image not found:', imgPath);
-        return '@/assets/placeholder.jpg';
+        console.error('Image not found:', imgPath)
+        return '@/assets/placeholder.jpg'
       }
     }
   }

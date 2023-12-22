@@ -8,8 +8,8 @@
       <h3>{{ product.title }}</h3>
 
       <div class='price-info'>
-        <div><b>€{{ product.price }}</b><br/><small>Excl. btw</small></div>
-        <div><b>€{{ (product.price * btw()).toFixed(2) }}</b><br/><small>Incl. btw</small></div>
+        <div><b>€{{ product.price }}</b><br /><small>Excl. btw</small></div>
+        <div><b>€{{ (product.price * btw()).toFixed(2) }}</b><br /><small>Incl. btw</small></div>
       </div>
     </div>
   </div>
@@ -86,10 +86,10 @@ export default {
     },
     loadImg(imgPath) {
       if (Object.prototype.hasOwnProperty.call(imageMap, imgPath)) {
-        return imageMap[imgPath];
+        return imageMap[imgPath]
       } else {
-        console.error('Geen afbeelding:', imgPath);
-        return '@/assets/placeholder.jpg';
+        console.error('Geen afbeelding:', imgPath)
+        return '@/assets/placeholder.jpg'
       }
     }
   },

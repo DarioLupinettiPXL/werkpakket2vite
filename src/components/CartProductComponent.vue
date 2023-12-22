@@ -27,14 +27,14 @@
         <b>€{{ (product.price * btw() - product.price).toFixed(2) }}</b>
 
         <input
-          :value="amount"
-          min="1"
-          :max="product.stock"
-          placeholder="amount"
-          @input="updateCartItem"
-          type="number"
-          name="amount"
-          id="amount"
+          :value='amount'
+          min='1'
+          :max='product.stock'
+          placeholder='amount'
+          @input='updateCartItem'
+          type='number'
+          name='amount'
+          id='amount'
         />
 
         <b>€{{ (amount * product.price * btw()).toFixed(2) }}</b>
@@ -122,17 +122,17 @@ export default {
     },
 
     updateCartItem(event) {
-      const newAmount = Number(event.target.value);
+      const newAmount = Number(event.target.value)
 
       if (newAmount > this.product.stock) {
-        console.error('Aantal is te hoog');
-        return;
+        console.error('Aantal is te hoog')
+        return
       }
 
       this.$store.dispatch('updateCartItemAmount', {
         productId: this.product.id,
-        newAmount,
-      });
+        newAmount
+      })
     },
 
     removeProductFromCart() {
@@ -158,9 +158,8 @@ button {
 }
 
 div.deleteIcon {
-  height: 45px;
-  width: 45px;
-  padding: 10px;
+  height: 25px;
+  width: 25px;
   transition: transform 0.3s ease;
 }
 

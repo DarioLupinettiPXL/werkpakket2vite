@@ -28,9 +28,8 @@
             <p class='priceCard'>€{{ product.price }}</p>
             <small>Excl. btw (BTW: {{ product.btw }}%)</small><br><br>
             <input v-model='amount' min='1' :max='product.stock' type='number' id='amount' name='amount'>
-            <KnopComponent @click="addToCart">Koop</KnopComponent>
+            <KnopComponent @click='addToCart'>Koop</KnopComponent>
           </div>
-
         </div>
       </div>
     </div>
@@ -122,13 +121,13 @@ export default {
 
     addToCart() {
       if (this.amount > this.product.stock) {
-        console.error("");
-        return;
+        console.error('')
+        return
       }
 
-      this.addedToCart = true;
-      this.venster();
-      this.$store.commit('addToCart', { product: this.product, amount: this.amount });
+      this.addedToCart = true
+      this.venster()
+      this.$store.commit('addToCart', { product: this.product, amount: this.amount })
     },
 
     loadImg(imgPath) {
@@ -138,7 +137,7 @@ export default {
         console.error('Geen afbeelding:', imgPath)
         return '@/assets/placeholder.jpg'
       }
-    },
+    }
   }
 }
 </script>
