@@ -1,0 +1,26 @@
+@use "font" as *;
+@use "kleuren" as *;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  overflow-x: hidden;
+  background-color: $background-color;
+}
+
+header {
+  background-color: $primary-color;
+  padding: 20px 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,147 @@
+@use "kleuren" as *;
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mySlides.fade {
+  opacity: 1;
+}
+
+.fade {
+  animation: fade 1s ease-in-out both;
+
+  @keyframes fade {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: $primary-color;
+  font-weight: bold;
+  font-size: 30px;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: $primary-color 0.3s;
+
+  &.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin: 100px auto;
+  max-width: 1000px;
+
+  .images {
+    flex: 1;
+    max-width: 45%;
+  }
+
+  .details {
+    flex: 1;
+    padding: 0 20px;
+
+    h2 {
+      font-size: 32px;
+      margin: 20px 0;
+      color: $detail-heading-color;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+      color: $detail-text-color;
+    }
+
+    .price {
+      font-size: 24px;
+      color: $detail-price-color;
+      margin-bottom: 20px;
+    }
+
+    button#add-to-cart {
+      padding: 12px 24px;
+      background-color: $detail-button-bg;
+      color: #fff;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      transition: $detail-heading-color 0.3s;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: $detail-button-hover-bg;
+      }
+    }
+  }
+
+  .specifications {
+    flex: 1;
+    border-top: 2px solid $detail-border-color;
+    margin-top: 30px;
+    padding-top: 20px;
+
+    h3 {
+      font-size: 24px;
+      color: $detail-heading-color;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      color: $detail-text-color;
+      margin: 10px 0;
+      border-bottom: 1px solid $border-color;
+      padding-bottom: 10px;
+
+      strong {
+        flex: 1;
+        color: $detail-heading-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.paginatie {
+  text-align: center;
+  margin-top: 20px; }
+
+.paginatie ul {
+  list-style: none;
+  padding: 0; }
+
+.paginatie li {
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer; }
+
+.paginatie li.prev {
+  margin-right: 20px; }
+
+.paginatie li.next {
+  margin-left: 20px; }
+
+.paginatie li.page:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #333; }
+
+/*# sourceMappingURL=paginatie.css.map */

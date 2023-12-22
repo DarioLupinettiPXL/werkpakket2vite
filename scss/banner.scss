@@ -1,0 +1,121 @@
+@use "kleuren" as *;
+@use "mixin" as *;
+@use "font" as *;
+
+.banner-text {
+  position: relative;
+  text-align: center;
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  @include text-styles($font-size, $link-color);
+  @include banner-animation;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  color: $primary-color;
+  font-weight: bold;
+  font-style: italic;
+
+  h1 {
+    font-size: $banner-font;
+    margin: 10px 0;
+    text-transform: uppercase;
+    color: $primary-color;
+    font-family: "Cursive Font", cursive;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: $background-color 0.3s;
+    font-size: $paragraaf;
+    text-align: center;
+    white-space: nowrap;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: $link-hover-color;
+    }
+  }
+}
+
+.banner {
+  position: relative;
+
+  .logo-banner {
+    position: relative;
+    img {
+      max-width: 110%;
+      height: auto;
+      display: block;
+      margin: 0 0 0 -10px;
+    }
+
+    .logo-banner-content {
+      position: absolute;
+      padding: 15px;
+      top: 20%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid $border-color;
+      border-radius: 5px;
+      @include text-styles($font-size, $link-color);
+      @include banner-animation;
+
+      h1 {
+        font-size: 48px;
+        margin: 10px 0;
+        text-transform: uppercase;
+        color: $primary-color;
+        font-family: "Cursive Font", cursive;
+        letter-spacing: 5px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn {
+        @include text-styles($font-size, #fff);
+        background-color: $primary-color;
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        font-size: $paragraaf;
+        text-align: center;
+        white-space: nowrap;
+        margin-top: 20px;
+
+        &:hover {
+          background-color: $link-hover-color;
+        }
+      }
+    }
+  }
+
+  .banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .banner-image {
+    max-width: 30%;
+    margin: 40px 40px 200px 40px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    @include image-animation;
+  }
+}

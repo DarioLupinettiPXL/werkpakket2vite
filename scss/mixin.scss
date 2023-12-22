@@ -1,0 +1,56 @@
+@use "kleuren" as *;
+@use "font" as *;
+
+@mixin text-styles($font-size, $color: black) {
+  font-size: $font-size;
+  color: $color;
+}
+
+@mixin banner-animation {
+  animation: fadeIn 4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@mixin image-animation {
+  animation: fadeInRight 4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@mixin card-styles {
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin button-styles {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    transform: scale(1.05);
+  }
+}
+
+@mixin nav-link-styles {
+  color: $link-color;
+  font-size: $font-size;
+}
+
+@mixin nav-link-hover-styles {
+  color: $link-hover-color;
+  font-size: 20px;
+  transform: scale(1.1);
+}
+

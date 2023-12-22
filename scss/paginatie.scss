@@ -1,0 +1,40 @@
+@use "kleuren" as *;
+@use "mixin" as *;
+
+.paginatie {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.paginatie ul {
+  list-style: none;
+  padding: 0;
+}
+
+.paginatie li {
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: $primary-color;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.paginatie li.page {
+  @include text-styles(16px, $primary-color);
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.paginatie li.page:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background-color: $primary-color;
+  transition: $background-color 0.3s ease, color 0.3s ease;
+}

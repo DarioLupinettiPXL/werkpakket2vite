@@ -1,0 +1,57 @@
+@use "kleuren" as *;
+@use "mixin" as *;
+@use "font" as *;
+
+.cards-title {
+  text-align: center;
+  font-size: 80px;
+  margin-top: 80px;
+  color: $primary-color;
+  font-family: "Cursive Font", cursive;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+
+  .product-card {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    @include card-styles;
+
+    img {
+      max-width: 100%;
+      border-radius: 5px 5px 0 0;
+    }
+
+    h2 {
+      @include text-styles($headings, $primary-color);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      @include text-styles($paragraaf, $link-color);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      width: 45%;
+    }
+  }
+}
+
+.ontdek-button {
+  @include button-styles;
+}

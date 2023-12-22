@@ -1,0 +1,16 @@
+@use "kleuren";
+@use "font";
+@use "nav";
+@use "mixin";
+@use "overzichtspagina";
+@use "login";
+@use "body";
+@use "banner";
+@use "footer";
+@use "cards";
+@use "scroll";
+@use "paginatie";
+@use "detail";
+@use "terugnaartop";
+
+/*# sourceMappingURL=main.css.map */

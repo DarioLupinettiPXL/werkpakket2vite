@@ -1,0 +1,168 @@
+@use "body" as *;
+@use "font" as *;
+@use "kleuren" as *;
+@use "mixin" as *;
+
+#filters {
+  display: none;
+}
+
+.page-title {
+  @include text-styles(80px, $primary-color);
+  text-align: center;
+  font-family: "Cursive Font", cursive;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+.introduction-text {
+  text-align: center;
+  margin: 20px 10%;
+  @include text-styles(24px, $primary-color);
+  line-height: 1.5;
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+.filter-toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.filter-button {
+  @include text-styles(18px, #fff);
+  background-color: $primary-color;
+  display: inline-block;
+  padding: 10px 95%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: left;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $link-hover-color;
+  }
+}
+
+.filters {
+  background-color: $background-color-form;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+  animation: slideDown 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.filter-option {
+  margin: 20px 0 10px 0;
+
+  label {
+    @include text-styles($font-size, $primary-color);
+  }
+
+  select,
+  input[type="range"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    @include text-styles($font-size, $primary-color);
+  }
+}
+
+.show-all-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: $background-color 0.3s;
+
+  &:hover {
+    background-color: $link-hover-color;
+  }
+}
+
+.allestonen {
+  label {
+    @include text-styles($font-size, $primary-color);
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $background-color 0.3s;
+    text-align: center;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: $link-hover-color;
+    }
+  }
+}
+
+
+.filter-option {
+  margin-bottom: 10px;
+
+  label {
+    @include text-styles($font-size, $primary-color);
+  }
+
+  .input[type="range"] {
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: $primary-color;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: lighten($primary-color, 10%);
+      }
+    }
+
+    &::-webkit-slider-runnable-track {
+      height: 5px;
+      background: $border-color;
+    }
+  }
+
+  span#selectedPrice {
+    display: block;
+    @include text-styles($font-size, $primary-color);
+    text-align: center;
+    margin-top: 5px;
+  }
+}
